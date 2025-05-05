@@ -1,48 +1,33 @@
-# Astro Starter Kit: Basics
+# 🌐 Portafolio de AlexaDev 👩‍💻
 
-```sh
-npm create astro@latest -- --template basics
-```
+✨Bienvenid@ a mi portafolio como **Desarrolladora Web Full Stack Junior**.✨ 
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Aquí muestro la creación de mi portafolio, las habilidades técnicas y practicas que he podido desarrollar. 
+Este sitio está hecho con tecnologías modernas, siguiendo buenas prácticas y con diseño responsive.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![update-website](https://github.com/user-attachments/assets/39dafce4-2d9d-487d-a874-f0fadaa2380a)
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🚀 Tecnologías utilizadas
 
-## 🚀 Project Structure
+- [Astro](https://astro.build/) — Framework principal para el sitio.
+- [Tailwind CSS](https://tailwindcss.com/) — Estilos modernos, responsive y personalizados.
+- HTML, CSS y JavaScript (Vanilla)
+- Deploy en [Netlify](h)
+- Accesibilidad y rendimiento web considerados desde el diseño.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 📁 Estructura del proyecto
 
-```text
-/
-├── public/
-│   └── favicon.svg
+```bash
+.
+├── public/                # Archivos estáticos
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── components/        # Componentes Astro reutilizables
+│   ├── icons/             # Íconos SVG de habilidades y tecnologías
+│   ├── layouts/           # Layouts generales del sitio
+│   ├── pages/             # Rutas principales (home, 404, etc.)
+│   └── services/          # Validaciones del formulario
+├── .astro/                # Archivos generados por Astro
+├── tailwind.config.js     # Configuración de Tailwind
+├── astro.config.mjs       # Configuración del proyecto Astro
 └── package.json
-```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
