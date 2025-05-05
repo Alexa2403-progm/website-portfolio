@@ -1,0 +1,83 @@
+---
+import { TAGS } from "./data/tagsData";
+import GitHubIcons from "../Icons/tegnology/GitHubIcons.astro";
+import WorldIcons from "../Icons/symbols/WorldIcons.astro";
+
+const PROJECTS = [
+  {
+    title: "Portfolio",
+    description:
+      "Esta es mi primer experiencia creando un portafolio. He diseñado e implementado cada sección con Astro y Tailwind, aplicando buenas prácticas y diseño responsive.",
+    link: " ",
+    github: " ",
+    image: "/public/projects/img-portfolio.webp",
+    tags: [TAGS.ASTRO, TAGS.TAILWIND],
+  },
+  {
+    title: "Hackloud",
+    description:
+      "App de almacenamiento en la nube, donde los usuarios pueden subir y compartir archivos. Cuidando tanto la experiencia visual como la robustez del sistema.",
+    link: " https://hackloud.netlify.app/ ",
+    github: " https://github.com/Alexa2403-progm/PROYECTO-DISCO-DURO-FRONT ",
+    image: "/public/projects/hackloud-i.webp",
+    tags: [TAGS.REACT, TAGS.NODE, TAGS.EXPRESS, TAGS.SQL, TAGS.TAILWIND],
+  },
+  {
+    title: "Adivina el color",
+    description:
+      "Juego que pone en practica HTML, CSS y JavaScript. Es totalmente responsive y el objetivo es adivinar el color a partir de un valor RGB mostrado en pantalla.",
+    link: " https://alexa2403-progm.github.io/Adivina-el-color/ ",
+    github: "https://github.com/Alexa2403-progm/Adivina-el-color",
+    image: "/public/projects/game1.webp",
+    tags: [TAGS.HTML, TAGS.CSS, TAGS.JAVASCRIPT],
+  },
+];
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  {
+    PROJECTS.map(({ title, description, link, github, image, tags }) => (
+      <article class="w-full max-w-md mx-auto">
+        <div class="w-full group relative overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 h-64 border rounded-4xl border-neutral-900/10">
+          <div class="size-full">
+            <img
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-6 group-hover:scale-125 brightness-100"
+              src={image}
+              alt={`imagen de proyecto ${image}`}
+            />
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/100 group-hover:via-black/90 group-hover:to-black/90" />
+          <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0">
+            <h3 class="font-dmserif text-3xl font-bold text-zinc-100 py-2">
+              {title}
+            </h3>
+            <p class="text-sm sm:text-base md:text-lg text-zinc-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-4 text-pretty">
+              {description}
+            </p>
+
+            <ul class="flex flex-wrap justify-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex items-center gap-1 text-xs font-medium ${tag.class} py-0.5 px-3 rounded-full`}
+                  >
+                    <tag.icon class="size-4" />
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            <div class="flex justify-between mt-2 text-sm underline gap-4">
+              <a href={github} target="_blank" class="hover:text-purple-200">
+                <GitHubIcons class="size-5" />
+              </a>
+              <a href={link} target="_blank">
+                <WorldIcons class="size-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    ))
+  }
+</div>

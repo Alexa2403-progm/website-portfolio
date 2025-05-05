@@ -1,0 +1,54 @@
+---
+import EmailIcons from "../Icons/social/EmailIcons.astro";
+import GitHubIcons from "../Icons/tegnology/GitHubIcons.astro";
+import ComunSocial from "./ComunSocial.astro";
+import LinkedInIcons from "../Icons/social/LinkedInIcons.astro";
+import HeartIcons from "../Icons/symbols/HeartIcons.astro";
+import ImgLogo from "./ImgLogo.astro";
+---
+
+<footer
+  class="shadow-sm [background:radial-gradient(125%_125%_at_50%_10%)] w-full text-white border border-purple-400/70 px-5"
+>
+  <div class="py-4 md:py-8 w-full mx-auto max-w-[920px]">
+    <div class="sm:flex sm:items-center sm:justify-between">
+      <a
+        href="/"
+        class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
+      >
+        <ImgLogo title="Logo" />
+        <span
+          class="self-center text-xl font-semibold whitespace-nowrap text-zinc-300"
+          >AlexaDev</span
+        >
+      </a>
+      <ul
+        class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400 gap-4"
+      >
+        <li>
+          <ComunSocial href="https://github.com/Alexa2403-progm">
+            <GitHubIcons class="size-4 sm:size-5 md:size-6" />
+          </ComunSocial>
+        </li>
+        <li>
+          <ComunSocial href="https://linkedin.com/in/alexmary-rangel-825300121">
+            <LinkedInIcons class="size-4 sm:size-5 md:size-6" />
+          </ComunSocial>
+        </li>
+
+        <li>
+          <ComunSocial href="https://alexmaryrangel@gmail.com">
+            <EmailIcons class="size-4 sm:size-5 md:size-6" />
+          </ComunSocial>
+        </li>
+      </ul>
+    </div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400"
+      >© 2025 Alexmary Rangel | Hecho Con Mucho
+      <span class="inline-flex items-center gap-1">
+        <HeartIcons class="size-4 inline-block" />
+      </span>
+    </span>
+  </div>
+</footer>

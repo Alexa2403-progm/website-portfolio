@@ -1,11 +1,58 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import "./src/styles/global.css"; //revisar con tailwind si hay que importar
+import Layout from "../layouts/Layout.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import CodeIcons from "../Icons/symbols/CodeIcons.astro";
+import Projects from "../components/Projects.astro";
+import ProfileIcons from "../Icons/symbols/ProfileIcons.astro";
+// import BlogIcons from "../Icons/symbols/BlogIcons.astro";
+import ContactIcons from "../Icons/symbols/ContactIcons.astro";
+import Contact from "../components/Contact.astro";
+import TitleSectionH2 from "../components/TitleSectionH2.astro";
+import HomeSection from "../components/HomeSection.astro";
+import SkillsSection from "../components/SkillsSection.astro";
+import AboutMeSection from "../components/AboutMeSection.astro";
+import NavigateMobile from "../components/NavigateMobile.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="My Portfolio - Web Developer Full Stack "
+  description="Welcome to my portfolio! I'm Alexmary Rangel, a passionate web developer with full stack skills. Explore my projects and skills as I strive to grow and specialize within a professional team."
+>
+  <!-- ¡Bienvenidos a mi portafolio! Soy Alexmary Rangel, una apasionada desarrolladora web con habilidades integrales. Explora mis proyectos y habilidades mientras me esfuerzo por crecer y especializarme dentro de un equipo profesional. -->
+
+  <main class="px-5">
+    <SectionContainer id="home">
+      <HomeSection />
+    </SectionContainer>
+    <SectionContainer id="projects">
+      <TitleSectionH2>
+        <CodeIcons class="size-7" />
+        Proyectos
+      </TitleSectionH2>
+      <Projects />
+      <SkillsSection />
+    </SectionContainer>
+    <SectionContainer id="about">
+      <TitleSectionH2>
+        <ProfileIcons class="size-7" />
+        Quien Soy
+      </TitleSectionH2>
+      <AboutMeSection />
+    </SectionContainer>
+    <!-- <SectionContainer id="blog" class="flex flex-col gap-6">
+      <TitleSectionH2>
+        <BlogIcons class="size-7" />
+        Blog
+      </TitleSectionH2>
+    </SectionContainer> -->
+    <SectionContainer id="contact" class="flex flex-col gap-6 mb-10">
+      <TitleSectionH2>
+        <ContactIcons class="size-7" />
+        Contacto
+      </TitleSectionH2>
+      <Contact />
+    </SectionContainer>
+  </main>
+  <!-- <NavigateMobile /> -->
 </Layout>

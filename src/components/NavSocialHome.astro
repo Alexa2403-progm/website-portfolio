@@ -1,0 +1,24 @@
+---
+import EmailIcons from "../Icons/social/EmailIcons.astro";
+import LinkedInIcons from "../Icons/social/LinkedInIcons.astro";
+import GitHubIcons from "../Icons/tegnology/GitHubIcons.astro";
+import ComunSocial from "./ComunSocial.astro";
+---
+
+<nav
+  class={`flex justify-center md:justify-start gap-2 flex-wrap mt-6 ${Astro.props.class}`}
+>
+  <ComunSocial href="https://github.com/Alexa2403-progm">
+    <GitHubIcons class="size-4 md:size-6" />
+    GitHub
+  </ComunSocial>
+  <ComunSocial href="https://linkedin.com/in/alexmary-rangel-825300121">
+    <LinkedInIcons class="size-4 md:size-6" />
+    LinkedIn
+  </ComunSocial>
+  <ComunSocial href="https://alexmaryrangel@gmail.com">
+    <EmailIcons class="size-4 md:size-6" />
+    alexmaryrangel@gmail.com
+  </ComunSocial>
+  <slot />
+</nav>

@@ -1,0 +1,17 @@
+---
+import About from "./About.astro";
+import Experience from "./Experience.astro";
+---
+
+<div
+  class={`flex flex-col md:flex-row gap-5 flex-direction ${Astro.props.class}`}
+>
+  <div
+    class="w-full rounded-xl border border-purple-400/70 bg-white/80 dark:bg-gray-950/40 shadow-md backdrop-blur-md transition-colors duration-300"
+  >
+    <About />
+  </div>
+  <div class="w-full">
+    <Experience />
+  </div>
+</div>

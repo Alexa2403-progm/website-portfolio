@@ -1,0 +1,121 @@
+---
+import { isValidEmail, isValidName } from "../services/contactValidate.ts";
+
+let formValues = {
+  username: "",
+  email: "",
+  message: "",
+};
+
+const errors = { username: "", email: "", message: "" };
+let showStatus = false;
+let statusMessage = "";
+let isSuccess = false;
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("username")?.toString() ?? "";
+    const email = data.get("email")?.toString() ?? "";
+    const message = data.get("message")?.toString() ?? "";
+
+    formValues = { username: name, email, message };
+
+    if (
+      !name ||
+      typeof name !== "string" ||
+      !isValidName(name) ||
+      name.trim().length < 1
+    ) {
+      errors.username = "El nombre es requerido";
+    }
+    if (!email) {
+      errors.email = "El email es obligatorio";
+    } else if (typeof email !== "string" || !isValidEmail(email)) {
+      errors.email = "El email no es valido";
+    }
+    if (!message || typeof message !== "string" || message.trim().length < 1) {
+      errors.message = "El mensaje es requerido";
+    }
+
+    if (!errors.username && !errors.email && !errors.message) {
+      showStatus = true;
+      statusMessage = "¡Gracias por contactar!";
+      isSuccess = true;
+    }
+  } catch (error) {
+    showStatus = true;
+    statusMessage = "Error en el servidor.";
+  }
+}
+---
+
+<article class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <div>
+    <p class="text-zinc-300 text-base sm:text-xl md:text-lg opacity-75">
+      ¿ Proyecto en mente o vacante ? Estoy disponible para trabajar o
+      colaboraciones.
+    </p>
+    <div class="text-zinc-300 mt-4">
+      <h3>Ubicación:</h3>
+      <p>Madrid - España</p>
+    </div>
+  </div>
+  <div>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      id="contact-form"
+      class="flex flex-col gap-4"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
+
+      <input
+        type="text"
+        name="username"
+        id="username"
+        value={formValues.username}
+        placeholder="Nombre"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+      />
+      {errors.username && <p class="text-red-500">{errors.username}</p>}
+      <input
+        type="email"
+        name="email"
+        id="email"
+        value={formValues.email}
+        placeholder="Email"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+      />
+      {errors.email && <p class="text-red-500">{errors.email}</p>}
+
+      <textarea
+        name="message"
+        id="message"
+        value={formValues.message}
+        placeholder="Mensaje"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 text-zinc-300 rounded-lg resize-none focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+        rows="6"></textarea>
+      {errors.message && <p class="text-red-500">{errors.message}</p>}
+      <button
+        type="submit"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 text-zinc-300 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+      >
+        Enviar
+      </button>
+    </form>
+    {
+      showStatus && (
+        <div
+          id="form-status"
+          class={`mt-4 text-lg ${isSuccess ? "text-green-500" : "text-red-500"}`}
+        >
+          {statusMessage}
+        </div>
+      )
+    }
+  </div>
+</article>

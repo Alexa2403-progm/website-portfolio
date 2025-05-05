@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@import "tailwindcss-animated";
+
+:root {
+  color-scheme: light dark;
+  opacity: 90%;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  background: #101010;
+  display: flex;
+  flex-direction: column;
+
+  /* min-height: 100vh; */
+
+  /* background: linear-gradient(360deg, rgba(40,20,93,255) 30%, rgba(0, 0, 0, 1) 70%); */
+  /* background: linear-gradient(180deg, #000 40%, #63e 100%); */
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "urbanist", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Desactivar el desplazamiento suave para los usuarios que prefieren un movimiento reducido*/
+  html {
+    scroll-behavior: auto;
+  }
+}

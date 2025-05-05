@@ -1,0 +1,118 @@
+---
+import ContactIcons from "../Icons/symbols/ContactIcons.astro";
+import HomeIcons from "../Icons/symbols/HomeIcons.astro";
+import PortfolioIcons from "../Icons/symbols/PortfolioIcons.astro";
+import ProfileIcons from "../Icons/symbols/ProfileIcons.astro";
+---
+
+<div
+  class="sticky bottom-0 z-50 w-full max-w-[920px] mx-auto flex justify-center items-center rounded-xl bg-indigo-950 shadow-2xl border border-purple-400 px-6 py-3 md:hidden"
+  role="navigation"
+  aria-label="Menú de navegación móvil"
+>
+  <ul class="flex justify-between w-[350px] mx-auto gap-2">
+    <li class="nav-item flex flex-col items-center">
+      <a
+        href="/"
+        class="nav-item flex flex-col items-center"
+        aria-label="Ir a inicio"
+      >
+        <HomeIcons
+          class="icon size-7 text-zinc-200 transition"
+          title="inicio"
+        />
+        <span class="label text-xs opacity-100 translate-y-1 transition"
+          >Inicio</span
+        >
+      </a>
+    </li>
+    <li class="nav-item flex flex-col items-center">
+      <a
+        href="#projects"
+        class="nav-item flex flex-col items-center"
+        aria-label="Ir a proyectos"
+      >
+        <PortfolioIcons
+          class="icon size-7 text-zinc-200 transition"
+          title="Proyectos"
+        />
+        <span class="label text-xs opacity-100 translate-y-1 transition"
+          >Proyectos</span
+        >
+      </a>
+    </li>
+    <li class="nav-item flex flex-col items-center">
+      <a
+        href="#about"
+        class="nav-item flex flex-col items-center"
+        aria-label="Ir a Quien Soy"
+      >
+        <ProfileIcons
+          class="icon size-7 text-zinc-200 transition"
+          title="Quien Soy"
+        />
+        <span class="label text-xs opacity-100 translate-y-1 transition"
+          >Quien Soy</span
+        >
+      </a>
+    </li>
+    <!-- <li class="nav-item flex flex-col items-center">
+        <a
+          href="#blog"
+          class="nav-item flex flex-col items-center"  aria-label="Ir a Blog"
+        >
+          <BlogIncons class="icon size-7 text-zinc-200 transition" title="Blog"/>
+          <span class="label text-xs opacity-100 translate-y-1 transition"
+            >Blog</span
+          >
+        </a>
+      </li> -->
+    <li class="nav-item flex flex-col items-center">
+      <a
+        href="#contact"
+        class="nav-item flex flex-col items-center"
+        aria-label="Ir a Contacto"
+      >
+        <ContactIcons
+          class="icon size-7 text-zinc-200 transition"
+          title="Contacto"
+        />
+        <span class="label text-xs opacity-100 translate-y-1 transition"
+          >Contacto</span
+        >
+      </a>
+    </li>
+  </ul>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".nav-item");
+
+    items.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Reiniciar todos a blanco
+        items.forEach((i) => {
+          const icon = i.querySelector(".icon");
+          const label = i.querySelector(".label");
+
+          icon?.classList.remove("text-purple-400", "scale-110");
+          icon?.classList.add("text-zinc-200");
+
+          label?.classList.remove("text-purple-400", "translate-y-2");
+          label?.classList.add("text-zinc-200", "translate-y-1", "opacity-100");
+        });
+
+        // Activar el clicado en morado
+        const icon = item.querySelector(".icon");
+        const label = item.querySelector(".label");
+
+        icon?.classList.remove("text-zinc-200");
+        icon?.classList.add("text-purple-400", "scale-110");
+
+        label?.classList.remove("text-zinc-200", "translate-y-1");
+        label?.classList.add("text-purple-400", "translate-y-2");
+      });
+    });
+  });
+</script>

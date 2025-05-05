@@ -1,0 +1,18 @@
+---
+import { EXPERIENCE } from "../components/data/experienceData.ts";
+import ExperienceProject from "../components/ExperienceProject.astro";
+---
+
+<article
+  class="max-w-3xl mx-auto flex flex-col gap-4 p-6 rounded-xl border border-purple-400/70 dark:bg-gray-950/40 shadow-md backdrop-blur-md transition-colors duration-300"
+>
+  <ol>
+    {
+      EXPERIENCE.map((experience) => (
+        <li class="mb-10 ms-6">
+          <ExperienceProject {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+</article>
