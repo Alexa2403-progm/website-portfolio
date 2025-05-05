@@ -1,26 +1,22 @@
 ---
-import "./src/styles/global.css"; //revisar con tailwind si hay que importar
+import "./src/styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import CodeIcons from "../Icons/symbols/CodeIcons.astro";
 import Projects from "../components/Projects.astro";
 import ProfileIcons from "../Icons/symbols/ProfileIcons.astro";
-// import BlogIcons from "../Icons/symbols/BlogIcons.astro";
 import ContactIcons from "../Icons/symbols/ContactIcons.astro";
 import Contact from "../components/Contact.astro";
 import TitleSectionH2 from "../components/TitleSectionH2.astro";
 import HomeSection from "../components/HomeSection.astro";
 import SkillsSection from "../components/SkillsSection.astro";
 import AboutMeSection from "../components/AboutMeSection.astro";
-import NavigateMobile from "../components/NavigateMobile.astro";
 ---
 
 <Layout
   title="My Portfolio - Web Developer Full Stack "
-  description="Welcome to my portfolio! I'm Alexmary Rangel, a passionate web developer with full stack skills. Explore my projects and skills as I strive to grow and specialize within a professional team."
+  description="¡Bienvenidos a mi portafolio! Soy Alexmary Rangel, una apasionada desarrolladora web con habilidades integrales. Explora mis proyectos y habilidades mientras me esfuerzo por crecer y especializarme dentro de un equipo profesional."
 >
-  <!-- ¡Bienvenidos a mi portafolio! Soy Alexmary Rangel, una apasionada desarrolladora web con habilidades integrales. Explora mis proyectos y habilidades mientras me esfuerzo por crecer y especializarme dentro de un equipo profesional. -->
-
   <main class="px-5">
     <SectionContainer id="home">
       <HomeSection />
@@ -54,5 +50,4 @@ import NavigateMobile from "../components/NavigateMobile.astro";
       <Contact />
     </SectionContainer>
   </main>
-  <!-- <NavigateMobile /> -->
 </Layout>
