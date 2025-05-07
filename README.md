@@ -68,7 +68,7 @@ http://localhost:4321/
 
 ¿Tienes un proyecto o vacante en mente? Estoy abierta a oportunidades:
 
-📧 [Correo](alexmaryrangel@gmail.com) <br>
+📧 [Correo](https://alexmaryrangel@gmail.com) <br>
 🌐 [Web](alexadev.dev) <br>
 💼 [LinkedIn](https://linkedin.com/in/alexmary-rangel-825300121) <br>
 💻 [GitHub](https://github.com/Alexa2403-progm)
@@ -80,6 +80,10 @@ http://localhost:4321/
 👉 [Descargar CV](./public/Web_Developer_CV.pdf)
 <br>
 
-
+## ⛓️‍💥 Creadora
+🙋‍♀️ Alexmary Rangel 
+<br/>
+📍 Madrid - España
 
 ## Gracias por visitar mi portafolio 🙌
+
