@@ -58,6 +58,12 @@ npm install
 npm run dev
 ```
 
+#### Local Network
+```
+http://localhost:4321/
+```
+
+
 ## 📬 Contacto
 
 ¿Tienes un proyecto o vacante en mente? Estoy abierta a oportunidades:
