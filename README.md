@@ -58,6 +58,12 @@ npm install
 npm run dev
 ```
 
+#### Local Network
+```
+http://localhost:4321/
+```
+
+
 ## 📬 Contacto
 
 ¿Tienes un proyecto o vacante en mente? Estoy abierta a oportunidades:
@@ -71,7 +77,7 @@ npm run dev
 
 👀 Puedes ver y descargar mi currículum directamente desde la sección de contacto o desde este enlace:
 
-👉 [Descargar CV](./public/CV_Developer.pdf)
+👉 [Descargar CV](./public/Web_Developer_CV.pdf)
 <br>
 
 
