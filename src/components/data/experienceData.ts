@@ -3,7 +3,7 @@ export const EXPERIENCE = [
     title: "Proyectos Personales ",
     date: "Mayo-2025",
     description:
-      "Creando un blog para mi portafolio, donde compartiré mis conocimientos y experiencias en el desarrollo web, para ir fortaleciendo he ir mejorando mis habilidades cada día. ",
+      "Desarrollo proyectos personales para mejorar mi experiencia práctica, implementar lo aprendido en soluciones reales y seguir creciendo como desarrolladora web. ",
     isLatest: true,
     link: "#",
   },
