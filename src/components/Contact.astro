@@ -1,13 +1,20 @@
 ---
 import { isValidEmail, isValidName } from "../services/contactValidate.ts";
 
+// Estado inicial del formulario
 let formValues = {
   username: "",
   email: "",
   message: "",
 };
 
-const errors = { username: "", email: "", message: "" };
+// Errores para cada campo
+const errors = {
+  username: "",
+  email: "",
+  message: "",
+};
+
 let showStatus = false;
 let statusMessage = "";
 let isSuccess = false;
@@ -15,33 +22,36 @@ let isSuccess = false;
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
+
     const name = data.get("username")?.toString() ?? "";
     const email = data.get("email")?.toString() ?? "";
     const message = data.get("message")?.toString() ?? "";
 
+    // Guardamos lo que el usuario escribió
     formValues = { username: name, email, message };
 
-    if (
-      !name ||
-      typeof name !== "string" ||
-      !isValidName(name) ||
-      name.trim().length < 1
-    ) {
+    if (!name || !isValidName(name) || name.trim().length < 1) {
       errors.username = "El nombre es requerido";
     }
     if (!email) {
       errors.email = "El email es obligatorio";
-    } else if (typeof email !== "string" || !isValidEmail(email)) {
+    } else if (!isValidEmail(email)) {
       errors.email = "El email no es valido";
     }
-    if (!message || typeof message !== "string" || message.trim().length < 1) {
+    if (!message || message.trim().length < 1) {
       errors.message = "El mensaje es requerido";
     }
 
-    if (!errors.username && !errors.email && !errors.message) {
+    // Si no hay errores, mostramos éxito y limpiamos el formulario
+    const noErrors = !errors.username && !errors.email && !errors.message;
+
+    if (noErrors) {
       showStatus = true;
       statusMessage = "¡Gracias por contactar!";
       isSuccess = true;
+
+      // Limpiar campos
+      formValues = { username: "", email: "", message: "" };
     }
   } catch (error) {
     showStatus = true;
@@ -56,16 +66,16 @@ if (Astro.request.method === "POST") {
       ¿ Proyecto en mente o vacante ? Estoy disponible para trabajar o
       colaboraciones.
     </p>
-    <div class="text-zinc-300 mt-4">
+    <div class="text-zinc-300 opacity-75 text-base mt-4">
       <h3>Ubicación:</h3>
       <p>Madrid - España</p>
     </div>
   </div>
   <div>
     <form
-      name="contact"
       method="POST"
       data-netlify="true"
+      name="contact"
       netlify-honeypot="bot-field"
       id="contact-form"
       class="flex flex-col gap-4"
@@ -81,7 +91,11 @@ if (Astro.request.method === "POST") {
         placeholder="Nombre"
         class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
       />
-      {errors.username && <p class="text-red-500">{errors.username}</p>}
+      {
+        errors.username && (
+          <p class="text-red-500 text-sm font-normal">{errors.username}</p>
+        )
+      }
       <input
         type="email"
         name="email"
@@ -90,7 +104,11 @@ if (Astro.request.method === "POST") {
         placeholder="Email"
         class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
       />
-      {errors.email && <p class="text-red-500">{errors.email}</p>}
+      {
+        errors.email && (
+          <p class="text-red-500 text-sm font-normal">{errors.email}</p>
+        )
+      }
 
       <textarea
         name="message"
@@ -99,7 +117,12 @@ if (Astro.request.method === "POST") {
         placeholder="Mensaje"
         class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 text-zinc-300 rounded-lg resize-none focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
         rows="6"></textarea>
-      {errors.message && <p class="text-red-500">{errors.message}</p>}
+      {
+        errors.message && (
+          <p class="text-red-500 text-sm font-normal">{errors.message}</p>
+        )
+      }
+
       <button
         type="submit"
         class="px-4 py-2 border bg-purple-700 hover:bg-purple-800 text-zinc-300 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
@@ -111,9 +134,19 @@ if (Astro.request.method === "POST") {
       showStatus && (
         <div
           id="form-status"
-          class={`mt-4 text-lg ${isSuccess ? "text-green-500" : "text-red-500"}`}
+          class={`mt-4 text-lg ${isSuccess ? "text-green-500 text-sm font-normal" : "text-red-500 text-sm font-normal"}`}
         >
           {statusMessage}
+          
+          <script>
+            
+            const statusMsj = document.getElementById("form-status");
+            if (statusMsj) {
+              setTimeout(() => {
+                statusMsj.style.display = "none";
+              }, 3000); 
+            }
+          </script>
         </div>
       )
     }
