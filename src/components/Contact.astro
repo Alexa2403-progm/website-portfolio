@@ -51,42 +51,41 @@
       </button>
     </form>
 
-    <p id="form-status" class="mt-4 text-green-500 hidden">
-      ¡Gracias por contactar!
+    <p id="form-status" class="mt-4 hidden text-green-500">
+      ¡Mensaje enviado con éxito!
     </p>
 
     <script>
-      const form = document.querySelector("form");
-      const status = document.getElementById("form-status");
+      const form = document.getElementById("contact-form") as HTMLFormElement;
+      const status = document.getElementById(
+        "form-status"
+      ) as HTMLParagraphElement;
 
       if (form && status) {
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
 
-          const formData = new FormData(form);
+          const data = new FormData(form);
 
           try {
-            const response = await fetch("/", {
+            await fetch("/", {
               method: "POST",
-              body: formData,
+              body: data,
             });
 
-            if (response.ok) {
-              status.textContent = "¡Gracias por tu mensaje!";
-              status.classList.remove("hidden");
-              form.reset();
-
-              setTimeout(() => {
-                status.classList.add("hidden");
-              }, 4000);
-            } else {
-              status.textContent = "Hubo un problema. Inténtelo más tarde.";
-              status.classList.remove("hidden");
-            }
-          } catch (error) {
-            status.textContent = "Error de conexión. Revisa tu red.";
+            status.textContent = "¡Gracias por tu mensaje!";
             status.classList.remove("hidden");
+            status.classList.add("text-green-500");
+            form.reset();
+          } catch (error) {
+            status.textContent = "Hubo un problema. Inténtelo más tarde.";
+            status.classList.remove("hidden");
+            status.classList.add("text-red-500");
           }
+
+          setTimeout(() => {
+            status.classList.add("hidden");
+          }, 4000);
         });
       }
     </script>
