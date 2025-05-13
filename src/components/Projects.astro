@@ -38,42 +38,51 @@ const PROJECTS = [
   {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
       <article class="w-full max-w-md mx-auto">
-        <div class="w-full group relative overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 h-64 border rounded-4xl border-neutral-900/10">
+        <div class="w-full  group relative overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 h-64 border rounded-4xl border-neutral-900/10  ">
+          {/* <!-- Solo visible en mobile --> */}
+          <input
+            type="radio"
+            name="card"
+            class="size-full peer absolute inset-0 z-10 cursor-pointer block md:hidden appearance-none "
+          />
           <div class="size-full">
             <img
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-6 group-hover:scale-125 brightness-100"
               src={image}
               alt={`imagen de proyecto ${image}`}
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:rotate-6 group-hover:scale-125 brightness-100"
             />
           </div>
-          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/100 group-hover:via-black/90 group-hover:to-black/90" />
-          <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0">
-            <h3 class="font-dmserif text-3xl font-bold text-zinc-100 py-2">
+          {/* Capa oscura al hover o peer-checked */}
+          <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black transition-colors group-hover:from-black/100 group-hover:via-black/90 group-hover:to-black/90 peer-checked:from-black/100 peer-checked:via-black/90 peer-checked:to-black/90" />
+          {/* <!-- Contenido --> */}
+          <div class="absolute inset-0 flex translate-y-[66%]  flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0 peer-checked:translate-y-0 ">
+            <h3 class="font-dmserif text-3xl font-bold text-zinc-100 ">
               {title}
             </h3>
-            <p class="text-sm sm:text-base md:text-lg text-zinc-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-4 text-pretty">
-              {description}
-            </p>
-
-            <ul class="flex flex-wrap justify-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              {tags.map((tag) => (
-                <li>
-                  <span
-                    class={`flex items-center gap-1 text-xs font-medium ${tag.class} py-0.5 px-3 rounded-full`}
-                  >
-                    <tag.icon class="size-4" />
-                    {tag.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            <div class="flex justify-between mt-2 text-sm underline gap-4">
-              <a href={github} target="_blank" class="hover:text-purple-200">
-                <GitHubIcons class="size-5" />
-              </a>
-              <a href={link} target="_blank">
-                <WorldIcons class="size-5" />
-              </a>
+            <div class="max-w-screen-md translate-y-[14%] flex flex-col items-center justify-center text-center transition-all duration-500 peer mx-2">
+              <p class="text-sm sm:text-base md:text-md text-zinc-300 opacity-100 peer-checked:opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-pretty px-2">
+                {description}
+              </p>
+              <ul class="flex flex-wrap justify-center gap-2 mt-2  group-hover:opacity-100 peer-checked:opacity-100 transition-opacity duration-300">
+                {tags.map((tag) => (
+                  <li>
+                    <span
+                      class={`flex items-center gap-1 text-xs font-medium ${tag.class} py-0.5 px-3 rounded-full`}
+                    >
+                      <tag.icon class="size-4" />
+                      {tag.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex justify-between mt-2 text-sm underline gap-5 group-hover:opacity-100 peer-checked:opacity-100 transition-opacity duration-300">
+                <a href={github} target="_blank" class="hover:text-purple-200">
+                  <GitHubIcons class="size-5" />
+                </a>
+                <a href={link} target="_blank">
+                  <WorldIcons class="size-5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
