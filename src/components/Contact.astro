@@ -10,6 +10,7 @@
   </div>
   <div>
     <form
+      id="contact-form"
       name="contact"
       method="POST"
       data-netlify="true"
@@ -25,7 +26,7 @@
         id="username"
         placeholder="Nombre"
         required
-        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300"
       />
 
       <input
@@ -33,13 +34,13 @@
         name="email"
         placeholder="Email"
         required
-        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 rounded-lg focus:outline-none focus:ring-1 transition duration-300"
       />
       <textarea
         name="message"
         placeholder="Mensaje"
         required
-        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 text-zinc-300 rounded-lg resize-none focus:outline-none focus:ring-1 transition duration-300 ease-out md:ease-in"
+        class="px-4 py-2 border border-purple-400/70 hover:bg-white/5 text-zinc-300 rounded-lg resize-none focus:outline-none focus:ring-1 transition duration-300"
         rows="6"></textarea>
 
       <button
@@ -67,18 +68,24 @@
           const data = new FormData(form);
 
           try {
-            await fetch("/", {
+            const response = await fetch("/", {
               method: "POST",
               body: data,
             });
 
-            status.textContent = "¡Gracias por tu mensaje!";
-            status.classList.remove("hidden");
-            status.classList.add("text-green-500");
-            form.reset();
+            if (response.ok) {
+              status.textContent = "¡Gracias por tu mensaje!";
+              status.classList.remove("hidden");
+              status.classList.remove("text-red-500");
+              status.classList.add("text-green-500");
+              form.reset();
+            } else {
+              throw new Error("Error en el envío");
+            }
           } catch (error) {
             status.textContent = "Hubo un problema. Inténtelo más tarde.";
             status.classList.remove("hidden");
+            status.classList.remove("text-green-500");
             status.classList.add("text-red-500");
           }
 
