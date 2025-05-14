@@ -5,10 +5,10 @@ import WorldIcons from "../Icons/symbols/WorldIcons.astro";
 
 const PROJECTS = [
   {
-    title: "Portfolio",
+    title: "Portafolio",
     description:
       "Esta es mi primer experiencia creando un portafolio. He diseñado e implementado cada sección con Astro y Tailwind, aplicando buenas prácticas y diseño responsive.",
-    link: " ",
+    link: "https://portfolio-alexmary-rangel.netlify.app/",
     github: "https://github.com/Alexa2403-progm/website-portfolio",
     image: "/projects/update-website.webp",
     tags: [TAGS.ASTRO, TAGS.TAILWIND],
@@ -38,12 +38,12 @@ const PROJECTS = [
   {
     PROJECTS.map(({ title, description, link, github, image, tags }) => (
       <article class="w-full max-w-md mx-auto">
-        <div class="w-full  group relative overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 h-64 border rounded-4xl border-neutral-900/10  ">
+        <div class="group relative w-full overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 h-64 border rounded-4xl border-neutral-900/10  ">
           {/* <!-- Solo visible en mobile --> */}
           <input
             type="radio"
             name="card"
-            class="size-full peer absolute inset-0 z-10 cursor-pointer block md:hidden appearance-none "
+            class="size-full peer absolute inset-0 z-10 cursor-pointer block md:hidden appearance-none md:pointer-events-none"
           />
           <div class="size-full">
             <img
@@ -55,7 +55,7 @@ const PROJECTS = [
           {/* Capa oscura al hover o peer-checked */}
           <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black transition-colors group-hover:from-black/100 group-hover:via-black/90 group-hover:to-black/90 peer-checked:from-black/100 peer-checked:via-black/90 peer-checked:to-black/90" />
           {/* <!-- Contenido --> */}
-          <div class="absolute inset-0 flex translate-y-[66%]  flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0 peer-checked:translate-y-0 ">
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center transition-all duration-500 group-hover:translate-y-0 peer-checked:translate-y-0 translate-y-[66%] z-20 pointer-events-auto ">
             <h3 class="font-dmserif text-3xl font-bold text-zinc-100 ">
               {title}
             </h3>
@@ -75,7 +75,7 @@ const PROJECTS = [
                   </li>
                 ))}
               </ul>
-              <div class="flex justify-between mt-2 text-sm underline gap-5 group-hover:opacity-100 peer-checked:opacity-100 transition-opacity duration-300">
+              <div class="flex justify-between mt-2 text-sm underline gap-5 group-hover:opacity-100 peer-checked:opacity-100 transition-opacity duration-300 relative z-20 pointer-events-auto">
                 <a href={github} target="_blank" class="hover:text-purple-200">
                   <GitHubIcons class="size-5" />
                 </a>
