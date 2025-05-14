@@ -13,6 +13,6 @@ export const EXPERIENCE = [
     description:
       "Certificación Académica como Web Development full Stack en Hack A Boss, pudiendo acentar conocimientos teóricos y prácticos en React, Javascript, SQL, Html, Node.js y Css.",
     isLatest: false,
-    link: "",
+    link: "#",
   },
 ];
