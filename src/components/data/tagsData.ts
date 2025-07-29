@@ -1,14 +1,14 @@
-import AstroIcons from "../../Icons/tegnology/AstroIcons.astro";
-import CssIcons from "../../Icons/tegnology/CssIcons.astro";
-import ExpressIcons from "../../Icons/tegnology/ExpressIcons.astro";
-import GitHubIcons from "../../Icons/tegnology/GitHubIcons.astro";
-import HtmlIcons from "../../Icons/tegnology/HtmlIcons.astro";
-import JsIcons from "../../Icons/tegnology/JsIcons.astro";
-import MysqlIcons from "../../Icons/tegnology/MysqlIcons.astro";
-import NodeIcons from "../../Icons/tegnology/NodeIcons.astro";
-import ReactIcons from "../../Icons/tegnology/ReactIcons.astro";
-import TailwindIcons from "../../Icons/tegnology/TailwindIcons.astro";
-import TypescriptIcons from "../../Icons/tegnology/TypescriptIcons.astro";
+import AstroIcons from "../../Icons/technology/AstroIcons.astro";
+import CssIcons from "../../Icons/technology/CssIcons.astro";
+import ExpressIcons from "../../Icons/technology/ExpressIcons.astro";
+import GitHubIcons from "../../Icons/technology/GitHubIcons.astro";
+import HtmlIcons from "../../Icons/technology/HtmlIcons.astro";
+import JsIcons from "../../Icons/technology/JsIcons.astro";
+import MysqlIcons from "../../Icons/technology/MysqlIcons.astro";
+import NodeIcons from "../../Icons/technology/NodeIcons.astro";
+import ReactIcons from "../../Icons/technology/ReactIcons.astro";
+import TailwindIcons from "../../Icons/technology/TailwindIcons.astro";
+import TypescriptIcons from "../../Icons/technology/TypescriptIcons.astro";
 
 export const TAGS = {
   REACT: {

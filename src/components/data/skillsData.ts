@@ -59,6 +59,22 @@ export const skills = [
     name: "Netlify",
     icon: "/icons/netlify.svg",
   },
+  {
+    name: "Bootstrap",
+    icon: "/icons/bootstrap.svg",
+  },
+  {
+    name: "Next.js",
+    icon: "/icons/nextjs.svg",
+  },
+  {
+    name: "Python",
+    icon: "/icons/python.svg",
+  },
+  {
+    name: "Ollama",
+    icon: "/icons/ollama.svg",
+  },
 ];
 
 // ¿Por qué usar .ts para los datos de tus íconos?
