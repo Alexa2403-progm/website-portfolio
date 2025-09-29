@@ -6,9 +6,11 @@ import HtmlIcons from "../../Icons/technology/HtmlIcons.astro";
 import JsIcons from "../../Icons/technology/JsIcons.astro";
 import MysqlIcons from "../../Icons/technology/MysqlIcons.astro";
 import NodeIcons from "../../Icons/technology/NodeIcons.astro";
+import PythonIcons from "../../Icons/technology/PythonIcons.astro";
 import ReactIcons from "../../Icons/technology/ReactIcons.astro";
 import TailwindIcons from "../../Icons/technology/TailwindIcons.astro";
 import TypescriptIcons from "../../Icons/technology/TypescriptIcons.astro";
+import OllamaIcons from "../../Icons/technology/OllamaIcons.astro";
 
 export const TAGS = {
   REACT: {
@@ -65,5 +67,15 @@ export const TAGS = {
     name: "Typescript",
     class: "bg-blue-300 text-Blue-800",
     icon: TypescriptIcons,
+  },
+  PYTHON: {
+    name: "Python",
+    class: "bg-yellow-50 text-yellow-800",
+    icon: PythonIcons,
+  },
+  OLLAMA: {
+    name: "Ollama",
+    class: "bg-gray-100 text-gray-800",
+    icon: OllamaIcons,
   },
 };
