@@ -77,7 +77,7 @@ http://localhost:4321/
 
 👀 Puedes ver y descargar mi currículum directamente desde la sección de contacto o desde este enlace:
 
-👉 [Descargar CV](./public/Web_Developer_CV.pdf)
+👉 [Descargar CV](./public/Alexmary_Rangel_Web_Developer_CV.pdf)
 <br>
 
 ## ⛓️‍💥 Creadora
